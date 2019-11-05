@@ -1,0 +1,15 @@
+/*.log
+/*.DS_Store
+/target
+/*-init.clj
+/resources/public/js/compiled
+out
+.dir-locals.el
+.nrepl-port
+/.shadow-cljs
+karma.conf.js
+/node_modules
+package-lock.json
+package.json
+yarn.lock
+/resources/public/vendor
