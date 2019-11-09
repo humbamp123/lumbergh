@@ -27,10 +27,7 @@
 
 (defn home-title
   []
-  (let [name (subscribe [::subs/name])]
-    [re-com/title
-     :label "Lumbergh"
-     :level :level1]))
+  [:h1 "Lumbergh"])
 
 (defn link-to-about-page []
   [re-com/hyperlink-href
@@ -56,13 +53,13 @@
      [:span.col-3 role]]))
 
 ;; TODO: Separate into `roler` into its own namespace
-(defn role-section
+(defn roler-section
   ;; TODO: Refactor to use airtable/sheets data
   []
   (fn []
     (let [roles @(subscribe [::subs/roles])]
       [:div.m3.p3.border.border-purple.rounded.max-580
-       [:h2 "Roles"]
+       [:h2 "Roler"]
        [:div.flex.justify-between.center
         [:h3.col-3 "Team Member"]
         [:h3.col-3 "Previous Role"]
@@ -71,6 +68,30 @@
         (fn [idx role]
           (with-meta [assigned-role role idx] {:key idx}))
         roles)])))
+
+(defn story-groomer
+  []
+  (fn []
+    [:div.m3.p3.border.border-purple.rounded.max-580
+     [:h2 "Story Groomer"]]))
+
+(defn deployer
+  []
+  (fn []
+    [:div.m3.p3.border.border-purple.rounded.max-580
+     [:h2 "Deployer"]]))
+
+(defn summarizer
+  []
+  (fn []
+    [:div.m3.p3.border.border-purple.rounded.max-580
+     [:h2 "Summarizer"]]))
+
+(defn system-wellness
+  []
+  (fn []
+    [:div.m3.p3.border.border-purple.rounded.max-580
+     [:h2 "System Wellness"]]))
 
 (defn home-panel
   []
@@ -82,7 +103,11 @@
    #_[:div
       [:h3 (str "screen-width: " @(subscribe [::bp/screen-width]))]
       [:h3 (str "screen: " @(subscribe [::bp/screen]))]]
-   [role-section]])
+   [roler-section]
+   [story-groomer]
+   [deployer]
+   [summarizer]
+   [system-wellness]])
 
 
 ;; about
